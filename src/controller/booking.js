@@ -84,28 +84,25 @@ function addBooking(req, res, callback) {
                     // Retrieve booking details after the insertion
                     const bookingId = booking.insertId;
                     connection.query(
-                      `SELECT b.booking_entry_time, b.booking_checkout_time, b.booking_date, g.building_name, sp.block_name, sp.slot_no, dp.total
-                          FROM detail_pembayaran dp
-                          INNER JOIN pembayaran p ON p.id = dp.id_pembayaran
-                          INNER JOIN booking b ON b.id = p.id_booking
-                          INNER JOIN detail_gedung dg ON b.id_detail_gedung = dg.id
-                          INNER JOIN gedung g ON g.id = dg.id_gedung
-                          INNER JOIN slot_parkir sp ON sp.id = dg.id
-                          WHERE p.id_booking = ?`,
+                      `SELECT b.booking_date,b.booking_entry_time,b.booking_checkout_time,g.building_name,sp.block_name,sp.slot_no FROM detail_pembayaran AS dp INNER JOIN pembayaran AS p ON p.id = dp.id_pembayaran INNER JOIN booking as b ON b.id = p.id_booking INNER JOIN detail_gedung AS dg ON dg.id = b.id_detail_gedung INNER JOIN gedung AS g ON g.id = dg.id_gedung INNER JOIN slot_parkir AS sp ON sp.id = dg.id_slot
+                        WHERE p.id_booking = ?`,
                       [bookingId],
                       function (err, boked) {
                         connection.release(); // Release the connection
+                        console.log("boookkk", boked);
                         if (err) {
                           return callback(err);
                         }
 
                         // Handle successful insertion and retrieval here
                         // You can send a response to the client or perform any other actions
-                        res.status(200).json({
+                        const response = {
                           message:
                             "Booking added successfully, and status updated to 1.",
                           data: boked,
-                        });
+                        };
+
+                        res.status(200).json(response);
                       }
                     );
                   }
