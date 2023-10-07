@@ -73,7 +73,7 @@ function addBooking(req, res, callback) {
                 const detailGedungId = req.body.booking.id_detail_gedung;
 
                 connection.query(
-                  `UPDATE detail_gedung SET status = '1' WHERE id_slot = ?`,
+                  `UPDATE detail_gedung SET status = '1' WHERE id = ?`,
                   [detailGedungId],
                   function (err, result) {
                     if (err) {
@@ -140,3 +140,37 @@ function getall(req, res, callback) {
   });
 }
 module.exports.getall = getall;
+
+function getById(req, res, callback) {
+  let id = req.params.id;
+  console.log("maaaaaa",id)
+  pool.getConnection(function (err, connection) {
+    if (err) return callback(err);
+
+    const query = "SELECT mu.name, g.building_name, b.booking_entry_time, b.booking_checkout_time, b.booking_date FROM booking b INNER JOIN detail_gedung dg ON dg.id = b.id_detail_gedung INNER JOIN master_user mu ON mu.id = b.id_user INNER JOIN gedung g ON g.id = dg.id_gedung WHERE b.id = ?";
+
+    connection.query(query, [id], function (error, results) {
+      connection.release();
+      if (error) {
+        return callback(error);
+      }
+
+      if (results.length === 0) {
+        return callback({
+          success: false,
+          message: "Data Booking tidak ditemukan",
+        });
+      }
+
+      return callback({
+        success: true,
+        message: "Berhasil Mengambil Data Booking",
+        data: results[0],
+      });
+    });
+  });
+}
+
+module.exports.getById = getById;
+
+
