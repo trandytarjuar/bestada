@@ -1,0 +1,543 @@
+{
+	"info": {
+		"_postman_id": "8440e7b8-8813-4e91-8b09-e979585d89fa",
+		"name": "Bestada",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "25115604"
+	},
+	"item": [
+		{
+			"name": "cekslot",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/checkslot",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"checkslot"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "cekslot",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/checkslot",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"checkslot"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "676"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"2a4-KolDFsG9SYLaU68CMGE/d8aZZ38\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Oct 2023 15:37:29 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Successfully retrieved parking slot data\",\n    \"total_slots\": 10,\n    \"slot_used\": 2,\n    \"empty_slot\": 8,\n    \"data\": [\n        {\n            \"building_name\": \"blok m plaza\",\n            \"block_name\": \"blok a\",\n            \"slot_no\": \"3\"\n        },\n        {\n            \"building_name\": \"blok m plaza\",\n            \"block_name\": \"blok a\",\n            \"slot_no\": \"4\"\n        },\n        {\n            \"building_name\": \"blok m plaza\",\n            \"block_name\": \"blok a\",\n            \"slot_no\": \"5\"\n        },\n        {\n            \"building_name\": \"blok m plaza\",\n            \"block_name\": \"blok b\",\n            \"slot_no\": \"1\"\n        },\n        {\n            \"building_name\": \"blok m plaza\",\n            \"block_name\": \"blok b\",\n            \"slot_no\": \"2\"\n        },\n        {\n            \"building_name\": \"blok m plaza\",\n            \"block_name\": \"blok b\",\n            \"slot_no\": \"3\"\n        },\n        {\n            \"building_name\": \"blok m plaza\",\n            \"block_name\": \"blok b\",\n            \"slot_no\": \"4\"\n        },\n        {\n            \"building_name\": \"blok m plaza\",\n            \"block_name\": \"blok b\",\n            \"slot_no\": \"5\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "Add Booking",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"booking\":{\r\n    \"user\": 1,\r\n    \"id_detail_gedung\": 4,\r\n    \"jam_masuk\": \"12:00\",\r\n    \"jam_keluar\": \"15:00\",\r\n    \"tgl_booking\": \"2023-10-01\"\r\n    },\r\n  \"pembayaran\": {\r\n    \"id_booking\": \"nilai_anda_di_sini\",\r\n    \"jam_masuk\": \"12:00i\",\r\n    \"jam_keluar\": \"15:00\",\r\n    \"biaya\": \"nilai_anda_di_sini\",\r\n    \"tgl_keluar\": \"2023-10-01\"\r\n  },\r\n  \"detail_pembayaran\": {\r\n    \"id_pembayaran\": \"nilai_anda_di_sini\",\r\n    \"jam_masuk\": \"12:00\",\r\n    \"jam_keluar\": \"15:00\",\r\n    \"total\": \"nilai_anda_di_sini\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/booking/add",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking",
+						"add"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Add Booking",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"booking\":{\r\n    \"user\": 1,\r\n    \"id_detail_gedung\": 4,\r\n    \"jam_masuk\": \"12:00\",\r\n    \"jam_keluar\": \"15:00\",\r\n    \"tgl_booking\": \"2023-10-01\"\r\n    },\r\n  \"pembayaran\": {\r\n    \"id_booking\": \"nilai_anda_di_sini\",\r\n    \"jam_masuk\": \"12:00i\",\r\n    \"jam_keluar\": \"15:00\",\r\n    \"biaya\": \"nilai_anda_di_sini\",\r\n    \"tgl_keluar\": \"2023-10-01\"\r\n  },\r\n  \"detail_pembayaran\": {\r\n    \"id_pembayaran\": \"nilai_anda_di_sini\",\r\n    \"jam_masuk\": \"12:00\",\r\n    \"jam_keluar\": \"15:00\",\r\n    \"total\": \"nilai_anda_di_sini\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/booking/add",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"booking",
+								"add"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "266"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"10a-fTXUV0ZkSvaj4sXDEOowjIdbCHM\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Oct 2023 19:10:37 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Booking added successfully, and status updated to 1.\",\n    \"data\": [\n        {\n            \"booking_entry_time\": \"12:00:00\",\n            \"booking_checkout_time\": \"15:00:00\",\n            \"booking_date\": \"2023-09-30T17:00:00.000Z\",\n            \"building_name\": \"blok m plaza\",\n            \"block_name\": \"blok a\",\n            \"slot_no\": \"4\",\n            \"total\": 9000\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "GetAll Booking",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/booking",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Getall Booking",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/booking",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"booking"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "402"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"192-uLZUZThvFKVMNwmRuAtSurIyjsA\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Oct 2023 09:51:00 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Berhasil Mengambil Data Booking\",\n    \"data\": [\n        {\n            \"nama\": \"trandy\",\n            \"nama_gedung\": \"blok m plaza\",\n            \"blok\": \"blok a\",\n            \"jam_masuk_booking\": \"13:00:00\",\n            \"jam_keluar_booking\": \"15:00:00\",\n            \"tgl_booking\": \"2023-09-30T17:00:00.000Z\"\n        },\n        {\n            \"nama\": \"trandy\",\n            \"nama_gedung\": \"blok m plaza\",\n            \"blok\": \"bko a\",\n            \"jam_masuk_booking\": \"13:00:00\",\n            \"jam_keluar_booking\": \"15:00:00\",\n            \"tgl_booking\": \"2023-10-01T17:00:00.000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "get Booking By Id",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/booking/1",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"booking",
+						"1"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "get Booking By Id",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/booking/1",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"booking",
+								"1"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "236"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"ec-XCk71LDJ1nBXtIaKEY+KiUYiV8U\""
+						},
+						{
+							"key": "Date",
+							"value": "Thu, 05 Oct 2023 14:16:23 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Berhasil mengambil Data Booking\",\n    \"data\": [\n        {\n            \"nama\": \"trandy\",\n            \"nama_gedung\": \"blok m plaza\",\n            \"blok\": \"blok a\",\n            \"jam_masuk_booking\": \"13:00:00\",\n            \"jam_keluar_booking\": \"15:00:00\",\n            \"tgl_booking\": \"2023-09-30T17:00:00.000Z\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "get all detail payment",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": [
+				{
+					"name": "getall detailpayment",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/payment",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payment"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "547"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"223-IAyKYQpkGaEw0FeepSbmELtLvs4\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 06 Oct 2023 09:35:01 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Berhasil Mengambil Data Booking\",\n    \"data\": [\n        {\n            \"booking_date\": \"2023-09-30T17:00:00.000Z\",\n            \"booking_entry_time\": \"12:00:00\",\n            \"booking_checkout_time\": \"15:00:00\",\n            \"reality_checkout_time\": \"15:00:00\",\n            \"building_name\": \"blok m plaza\",\n            \"block_name\": \"blok a\",\n            \"slot_no\": \"3\",\n            \"total\": 9000,\n            \"status\": \"1\"\n        },\n        {\n            \"booking_date\": \"2023-09-30T17:00:00.000Z\",\n            \"booking_entry_time\": \"12:00:00\",\n            \"booking_checkout_time\": \"15:00:00\",\n            \"reality_checkout_time\": \"15:00:00\",\n            \"building_name\": \"blok m plaza\",\n            \"block_name\": \"blok a\",\n            \"slot_no\": \"1\",\n            \"total\": 9000,\n            \"status\": \"0\"\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "getall detailpembayaran",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/payment/35",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment",
+						"35"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "getall detailpembayaran",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "localhost:8080/payment/35",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payment",
+								"35"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "322"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"142-jKsptSLcwVxtYCdX8FAA4u318zE\""
+						},
+						{
+							"key": "Date",
+							"value": "Fri, 06 Oct 2023 17:19:07 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"success\": true,\n    \"message\": \"Berhasil Mengambil Data detail Payment\",\n    \"data\": [\n        {\n            \"booking_date\": \"2023-09-30T17:00:00.000Z\",\n            \"building_name\": \"blok m plaza\",\n            \"block_name\": \"blok a\",\n            \"slot_no\": \"3\",\n            \"booking_entry_time\": \"12:00:00\",\n            \"booking_checkout_time\": \"15:00:00\",\n            \"reality_checkout_time\": \"15:00:00\",\n            \"additional_cost\": 0,\n            \"total\": 9000\n        }\n    ]\n}"
+				}
+			]
+		},
+		{
+			"name": "payment",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"pembayaran\": {\r\n    \"jam_masuk\": \"12:00:00\",\r\n    \"jam_keluar\": \"16:00:00\",\r\n    \"tgl_keluar\": \"2023-10-01\"\r\n  }\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/payment/add/55",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"payment",
+						"add",
+						"55"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"pembayaran\": {\r\n    \"jam_masuk\": \"12:00:00\",\r\n    \"jam_keluar\": \"16:00:00\",\r\n    \"tgl_keluar\": \"2023-10-01\"\r\n  }\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "localhost:8080/payment/add/55",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"payment",
+								"add",
+								"55"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "259"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"103-6Vuh3vANaYn0OPs8OsvYpfVwpwE\""
+						},
+						{
+							"key": "Date",
+							"value": "Sat, 07 Oct 2023 06:42:50 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"message\": \"Terimakasih Atas Kunjungan dan Pembayran Anda\",\n    \"data\": [\n        {\n            \"booking_date\": \"2023-09-30T17:00:00.000Z\",\n            \"booking_entry_time\": \"12:00:00\",\n            \"booking_checkout_time\": \"15:00:00\",\n            \"building_name\": \"blok m plaza\",\n            \"block_name\": \"blok a\",\n            \"slot_no\": \"3\",\n            \"status\": \"0\"\n        }\n    ]\n}"
+				}
+			]
+		}
+	]
+}
