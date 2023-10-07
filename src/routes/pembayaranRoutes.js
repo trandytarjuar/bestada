@@ -1,7 +1,7 @@
 const pay = require("../controller/pembayaran");
 
 var router = function (app) {
-  app.post("/payment/add", function (req, res) {
+  app.post("/payment/add/:id", function (req, res) {
     pay.payment(req, res, function (result) {
       res.json(result);
     });
