@@ -1,0 +1,33 @@
+1a. SELECT *
+FROM customers
+WHERE address LIKE '%Jakarta%'
+
+1b. SELECT
+    c.id AS customer_id,
+    c.nama AS customer_name,
+    c.phone AS customer_phone,
+    c.address AS customer_address,
+    o.id AS order_id,
+    o.code AS order_code,
+    o.resi_number AS order_resi_number,
+    o.created_date AS order_created_date,
+    s.id AS shipment_id,
+    s.status AS shipment_status,
+    s.created_date AS shipment_created_date
+FROM customers c
+INNER JOIN orders o ON c.id = o.customer_id
+INNER JOIN shipments s ON o.id = s.order_id
+WHERE s.status = 'sent';
+
+1c. SELECT
+    c.id AS customer_id,
+    c.nama AS customer_name,
+    COUNT(CASE WHEN s.status = 'sent' THEN 1 END) AS successful_shipments,
+    COUNT(CASE WHEN s.status = 'cancel' THEN 1 END) AS failed_shipments
+FROM customers c
+INNER JOIN orders o ON c.id = o.customer_id
+INNER JOIN shipments s ON o.id = s.order_id
+WHERE c.address LIKE '%Bekasi%'
+    AND s.created_date >= '2022-01-01'
+    AND s.created_date <= '2022-04-30'
+GROUP BY c.id, c.nama
